@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # Backend (Laravel Sail)
+  laravel.test:
+    image: sail-8.1/app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '${APP_PORT:-8000}:8000'
+    environment:
+      WWWUSER: '${WWWUSER}'
+      LARAVEL_SAIL: 1
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - sail
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '5173:5173' # Porta padrão do Vite
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_URL: 'http://laravel.test:8000/api' # Comunicação com o backend
+    networks:
+      - sail
+
+  # Banco de dados (já incluso no Sail)
+  mysql:
+    image: 'mysql:8.0'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+    volumes:
+      - 'sailmysql:/var/lib/mysql'
+    networks:
+      - sail
+
+volumes:
+  sailmysql:
+    driver: local
+
+networks:
+  sail:
+    driver: bridge
