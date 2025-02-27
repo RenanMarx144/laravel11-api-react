@@ -6,6 +6,7 @@ import Suggestion from './pages/Suggestion';
 import LogoutButton from './components/LogoutButton';
 import { AuthProvider } from './contexts/AuthContext';
 import Home from './pages/Home';
+import Register from './pages/Register';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<LogoutButton />} />
             <Route path="/suggestions" element={<Suggestion />} />
           </Routes>

@@ -5,7 +5,7 @@ interface User {
   id: number;
   name: string;
   email: string;
-  role:string
+  role: string;
 }
 
 interface AuthContextType {
@@ -14,6 +14,7 @@ interface AuthContextType {
   isLoading: boolean;
   login: (credentials: { email: string; password: string }) => Promise<void>;
   logout: () => Promise<void>;
+  register: (credentials: { name: string; email: string; password: string , password_confirmation: string }) => Promise<void>; 
   setUser: (user: User | null) => void;
 }
 
@@ -21,9 +22,10 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   isAuthenticated: false,
   isLoading: true,
-  login: async () => {},
-  logout: async () => {},
-  setUser: () => {}
+  login: async () => { },
+  logout: async () => { },
+  register: async () => { }, 
+  setUser: () => { }
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -67,13 +69,27 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  // Função de registro
+  const register = async (credentials: { name: string; email: string; password: string; password_confirmation: string }) => {
+    try {
+        await api.get('/sanctum/csrf-cookie');
+        await api.post('/register', credentials); 
+        const userResponse = await api.get('/user');
+        setUser(userResponse.data); 
+    } catch (error) {
+        setUser(null);
+        throw error;
+    }
+};
+
   const value = {
     user,
     isAuthenticated: !!user,
     isLoading,
     setUser,
     login,
-    logout
+    logout,
+    register, // Adiciona o método register ao contexto
   };
 
   return (

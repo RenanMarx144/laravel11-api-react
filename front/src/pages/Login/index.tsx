@@ -1,7 +1,9 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { initializeCSRF } from "../api";
-import { useAuth } from '../contexts/AuthContext';
+import { initializeCSRF } from "../../api";
+import { useAuth } from '../../contexts/AuthContext';
+import './login.css';
+
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -49,7 +51,7 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="container">
             <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6">
                 <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
 
@@ -59,7 +61,7 @@ const Login: React.FC = () => {
                     </div>
                 )}
 
-                <form className="space-y-4" onSubmit={handleLogin}>
+                <form className="space-y-4 form2" onSubmit={handleLogin}>
                     <div>
                         <label className="block text-gray-700">Email</label>
                         <input
@@ -86,7 +88,7 @@ const Login: React.FC = () => {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded disabled:bg-gray-400"
+                        className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded disabled:bg-gray-400 mt-2 btn"
                         disabled={isLoading}
                     >
                         {isLoading ? 'Carregando...' : 'Entrar'}

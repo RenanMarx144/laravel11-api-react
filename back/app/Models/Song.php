@@ -13,6 +13,7 @@ class Song extends Model
     protected $fillable = [
         'name',
         'views',
-        'link'
+        'link',
+        'approved'
     ];
 }

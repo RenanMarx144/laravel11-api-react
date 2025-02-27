@@ -1,0 +1,149 @@
+.container {
+    padding: 4rem 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+    background-color: ghostwhite;
+    min-height: 100vh;
+}
+
+b {
+    cursor: pointer;
+    transition: .4s all ease;
+    transform: scale(1);
+}
+b:hover{
+    transform: scale(1.1);
+}
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    text-align: start;
+    justify-content: center;
+    background-color: white;
+    padding: 1.2rem 2.6rem;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+}
+.mt-2{
+    margin-top: 2rem;
+}
+
+.more {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: chocolate;
+    border-radius: 0px;
+    margin-left: 15px;
+    color: white;
+    height: 40px;
+    padding: 0 25px;
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: 700;
+    font-size: 16pt;
+}
+
+.form2 input {
+    height: 35px;
+    width: 100%;
+    padding-left: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.sept {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+}
+
+.bloco {
+    width: 50%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Apenas uma coluna */
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {
+
+    background-color: white;
+    margin-top: 50px;
+    padding: 2.6rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    display: flex;
+}
+
+.fz-32 {
+    font-size: 32pt;
+}
+
+.fz-16 {
+    font-size: 26pt;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.highlight {
+    height: 40px;
+    font-size: 16pt;
+}
+
+.no-highlight {
+    height: 20px;
+    font-size: 11pt;
+    width: 70%;
+}
+
+.text-orange-500 {
+    color: orange;
+}
+
+.ml-4 {
+    margin-left: 4rem;
+}
+
+.text-gray-600 {
+    color: rgba(128, 128, 128, 0.7);
+    font-weight: 300;
+}
+
+.fz-14 {
+    font-size: 14pt
+}
+
+.fz-11 {
+    font-size: 11pt
+}
+
+legend {
+    font-size: 16pt;
+    color: chocolate;
+    margin-top: 50px;
+}

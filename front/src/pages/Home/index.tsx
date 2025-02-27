@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../axios';
-import './styles.css';
+import './home.css';
 
 interface Song {
     id: number;

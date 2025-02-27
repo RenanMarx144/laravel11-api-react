@@ -34,7 +34,6 @@ class SongsController extends Controller
             'id' => 'required|exists:songs,id',
             'approved' => 'required|boolean'
         ]);
-
         $song = Song::findOrFail($request->id);
         if(!$song){
             return response()->json([
