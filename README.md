@@ -10,11 +10,12 @@
 ### 🔹 Backend (Laravel 11)
 
 Acesse a pasta do backend e suba os containers do Docker. Em seguida, execute as migrações e seeders e inicie o processamento de filas.
+ ```sh
 cd back
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan migrate --seed
 ./vendor/bin/sail artisan queue:work
-
+ ```
 ### 🔹 Frontend (React com Vite)
 
 O frontend será iniciado automaticamente pelo Docker, sem necessidade de instalação manual de dependências ou execução de comandos adicionais.
@@ -46,7 +47,8 @@ Você também pode registrar um novo usuário caso prefira.
 
 Para rodar os testes automatizados, basta executar os testes no backend.
 
----
-
+```sh
+./vendor/bin/sail artisan test
+ ```
 Agora seu projeto está pronto para uso! 🚀
 
